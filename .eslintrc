@@ -1,0 +1,9 @@
+{
+	"extends": "ckeditor5",
+	"rules": {
+		"no-unused-vars": "off"
+	},
+	"env": {
+		"node": true
+	}
+}
