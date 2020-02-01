@@ -1,56 +1,29 @@
+const { createDoublyLinkedList } = require( './createDoublyLinkedList' );
+
 function reverse( head ) {
-	let node = head;
+	if ( head.next == null ) {
+		return head;
+	}
+	let prevNode = head;
+	let currentNode = head.next;
 
-	while ( node.next !== null ) {
-		node = node.next;
+	head.next = null;
+	head.prev = currentNode;
+
+	while ( currentNode.next !== null ) {
+		prevNode = currentNode;
+		currentNode = currentNode.next;
+		prevNode.next = prevNode.prev;
+		prevNode.prev = currentNode;
 	}
 
-	const headNode = {};
-	headNode.next = node.prev;
-	headNode.prev = null;
-	headNode.data = node.data;
+	currentNode.next = prevNode;
+	currentNode.prev = null;
 
-	let currentNode;
-	let nextNode;
-	let prevNode;
-
-	currentNode = headNode.next;
-	prevNode = headNode;
-	nextNode = currentNode.prev;
-
-	while ( nextNode !== null ) {
-	   nextNode = nextNode.prev;
-	   prevNode = prevNode.next;
-	   currentNode = prevNode.next;
-	}
-
-	return headNode;
+	return currentNode;
 }
 
-function createDoublyLinkedList( array ) {
-	const head = {
-		data: array[ 0 ],
-		prev: null,
-	};
+const head = createDoublyLinkedList( [ 0 ] );
+const reversed = reverse( head );
+console.log( reversed.next );
 
-	let currentNode;
-	let nextNode;
-
-	currentNode = head;
-
-	for ( let n = 1; n < array.length; n++ ) {
-		nextNode = {
-			data: array[ n ],
-			prev: currentNode,
-		};
-		currentNode.next = nextNode;
-		currentNode = nextNode;
-	}
-	currentNode.next = null;
-
-	return head;
-}
-
-const head = createDoublyLinkedList( [ 0, 2, 4, 6 ] );
-
-console.log( reverse( head ) );

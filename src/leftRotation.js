@@ -5,7 +5,7 @@ function rotLeft( a, d ) {
 	for ( let i = 0; i < d; i++ ) {
 		elements.push( rotatedArray.shift() );
 	}
-	for ( element of elements ) {
+	for ( const element of elements ) {
 		rotatedArray.push( element );
 	}
 
