@@ -26,42 +26,48 @@ module.exports = class Heap {
 	}
 
 	deleteFirstElementFromTheHeap() {
-		if ( this.heap.length == 1 ) {
-			this.heap = [];
-
-			return;
-		}
-
+		const element = this.heap.pop();
+		const deletedElement = this.heap[ 0 ];
 		let elementIndex = 0;
 		let leftChildIndex = elementIndex * 2 + 1;
 		let rightChildIndex = elementIndex * 2 + 2;
-		const element = this.heap.pop();
 
-		this.heap[ elementIndex ] = this.heap[ this.heap.length - 1 ];
+		if ( this.heap.length == 0 ) {
+			this.heap = [];
+
+			return deletedElement;
+		}
+
+		this.heap[ elementIndex ] = element;
 
 		while ( elementIndex < this.heap.length - 1 ) {
-			if ( this.heap[ elementIndex ] > this.heap[ leftChildIndex ] ) {
-				this.heap[ elementIndex ] = this.heap[ leftChildIndex ];
-				this.heap[ leftChildIndex ] = element;
-				elementIndex = leftChildIndex;
-				leftChildIndex = elementIndex * 2 + 1;
-				rightChildIndex = elementIndex * 2 + 2;
+			if ( this.heap[ leftChildIndex ] <= this.heap[ rightChildIndex ] ) {
+				if ( this.heap[ elementIndex ] > this.heap[ leftChildIndex ] ) {
+					this.heap[ elementIndex ] = this.heap[ leftChildIndex ];
+					this.heap[ leftChildIndex ] = element;
+					elementIndex = leftChildIndex;
+					leftChildIndex = elementIndex * 2 + 1;
+					rightChildIndex = elementIndex * 2 + 2;
+				} else {
+					break;
+				}
+			} else {
+				if ( this.heap[ elementIndex ] > this.heap[ rightChildIndex ] ) {
+					this.heap[ elementIndex ] = this.heap[ rightChildIndex ];
+					this.heap[ rightChildIndex ] = element;
+					elementIndex = rightChildIndex;
+					leftChildIndex = elementIndex * 2 + 1;
+					rightChildIndex = elementIndex * 2 + 2;
+				} else {
+					break;
+				}
 			}
-			else if ( this.heap[ elementIndex ] > this.heap[ rightChildIndex ] ) {
-				this.heap[ elementIndex ] = this.heap[ rightChildIndex ];
-				this.heap[ rightChildIndex ] = element;
-				elementIndex = rightChildIndex;
-				leftChildIndex = elementIndex * 2 + 1;
-				rightChildIndex = elementIndex * 2 + 2;
-			}
-			else {
-				break;
-			}
+
 			if ( leftChildIndex >= this.heap.length ) {
 				break;
 			}
 		}
-		return element;
+
+		return deletedElement;
 	}
 };
-

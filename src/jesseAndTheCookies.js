@@ -25,7 +25,6 @@ function cookies( k, A ) {
 
 		jessCookies.addElementToTheHeap( newCookie );
 		count++;
-		console.log( jessCookies.heap, k, count );
 	}
 
 	return count;

@@ -23,21 +23,22 @@ describe( 'Heap', () => {
 		expect( newHeap5.min ).to.equal( undefined );
 	} );
 	it( 'should remove the first element of the heap', () => {
-		const newHeap = new Heap( [ 4, 2, 1, 5 ] );
+		const newHeap = new Heap( [ 4, 2, 1, 5, 7 ] );
 
 		newHeap.deleteFirstElementFromTheHeap();
 
 		expect( newHeap.min ).to.equal( 2 );
-		expect( newHeap.heap.length ).to.equal( 3 );
+		expect( newHeap.heap.length ).to.equal( 4 );
 
 		newHeap.deleteFirstElementFromTheHeap();
 
 		expect( newHeap.min ).to.equal( 4 );
-		expect( newHeap.heap.length ).to.equal( 2 );
+		expect( newHeap.heap.length ).to.equal( 3 );
 	} );
-	it.skip( 'should return the removed element of the heap', () => {
+	it( 'should return the removed element of the heap', () => {
 		const newHeap = new Heap( [ 7, 2, 0, 3, 5 ] );
-		expect( newHeap.deleteFirstElementFromTheHeap() ).to.equal( 0 );
+		const element = newHeap.deleteFirstElementFromTheHeap();
+		expect( element ).to.equal( 0 );
 	} );
 	it( 'should be possible to add element to the heap', () => {
 		const newHeap = new Heap( [ 4, 5, 2, 1 ] );
