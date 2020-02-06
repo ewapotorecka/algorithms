@@ -4,6 +4,7 @@ function reverse( head ) {
 	if ( head.next == null ) {
 		return head;
 	}
+
 	let prevNode = head;
 	let currentNode = head.next;
 
@@ -23,7 +24,7 @@ function reverse( head ) {
 	return currentNode;
 }
 
-const head = createDoublyLinkedList( [ 0 ] );
+const head = createDoublyLinkedList( [ 0, 1 ] );
 const reversed = reverse( head );
 console.log( reversed.next );
 
