@@ -35,7 +35,7 @@ module.exports = class Heap {
 		if ( this.heap.length == 0 ) {
 			this.heap = [];
 
-			return deletedElement;
+			return element;
 		}
 
 		this.heap[ elementIndex ] = element;

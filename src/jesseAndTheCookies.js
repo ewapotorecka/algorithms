@@ -17,13 +17,12 @@ function cookies( k, A ) {
 		let newCookie;
 		newCookie = jessCookies.deleteFirstElementFromTheHeap();
 		newCookie = newCookie + 2 * jessCookies.deleteFirstElementFromTheHeap();
-
+		jessCookies.addElementToTheHeap( newCookie );
 		if ( jessCookies.heap.length == 0 && newCookie < k ) {
 			count = -1;
 			break;
 		}
 
-		jessCookies.addElementToTheHeap( newCookie );
 		count++;
 	}
 

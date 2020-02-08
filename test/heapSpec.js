@@ -37,8 +37,11 @@ describe( 'Heap', () => {
 	} );
 	it( 'should return the removed element of the heap', () => {
 		const newHeap = new Heap( [ 7, 2, 0, 3, 5 ] );
+		const newHeap2 = new Heap( [ 1 ] );
 		const element = newHeap.deleteFirstElementFromTheHeap();
+		const element2 = newHeap2.deleteFirstElementFromTheHeap();
 		expect( element ).to.equal( 0 );
+		expect( element2 ).to.equal( 1 );
 	} );
 	it( 'should be possible to add element to the heap', () => {
 		const newHeap = new Heap( [ 4, 5, 2, 1 ] );
