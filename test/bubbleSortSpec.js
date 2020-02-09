@@ -7,5 +7,6 @@ describe( 'bubbleSort', () => {
 		expect( bubbleSort( [] ) ).to.deep.equal( [] );
 		expect( bubbleSort( [ 1 ] ) ).to.deep.equal( [ 1 ] );
 		expect( bubbleSort( [ 9, 1, 3, 5 ] ) ).to.deep.equal( [ 1, 3, 5, 9 ] );
+		expect( bubbleSort( [ 1, 1, 1, 1 ] ) ).to.deep.equal( [ 1, 1, 1, 1 ] );
 	} );
 } );
