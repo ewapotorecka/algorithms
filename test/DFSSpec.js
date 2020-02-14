@@ -2,7 +2,7 @@ const createTree = require( '../src/tree' );
 const depthFirstSearch = require( '../src/depthFirstSearch' );
 const { expect } = require( 'chai' );
 
-describe( 'Breadth First Search', () => {
+describe( 'Depth First Search', () => {
 	it( 'Should return true, if searched element is in a one element array', () => {
 		const tree = createTree( [ [ -1, 4 ] ] );
 		expect( depthFirstSearch( tree, 4 ) ).to.be.true;

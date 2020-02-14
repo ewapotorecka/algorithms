@@ -1,6 +1,11 @@
-const { createDoublyLinkedList } = require( './createDoublyLinkedList' );
+/* Reverse doubly linked list ( from hackerrank.com )
+You’re given the pointer to the head node of a doubly linked list.
+Reverse the order of the nodes in the list.
+The head node might be NULL to indicate that the list is empty.
+Change the next and prev pointers of all the nodes so that the direction of the list is reversed.
+Return a reference to the head node of the reversed list. */
 
-function reverse( head ) {
+module.exports = function reverse( head ) {
 	if ( head.next == null ) {
 		return head;
 	}
@@ -22,9 +27,4 @@ function reverse( head ) {
 	currentNode.prev = null;
 
 	return currentNode;
-}
-
-const head = createDoublyLinkedList( [ 0, 1 ] );
-const reversed = reverse( head );
-console.log( reversed.next );
-
+};

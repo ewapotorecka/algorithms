@@ -1,3 +1,9 @@
+/* Class Heap
+Creates heap from given array.
+Has methods for adding element to the heap,
+deleting first element from the heap,
+getting min value. */
+
 module.exports = class Heap {
 	constructor( array ) {
 		this.heap = [];
@@ -31,7 +37,7 @@ module.exports = class Heap {
 		let elementIndex = 0;
 		let leftChildIndex = elementIndex * 2 + 1;
 		let rightChildIndex = elementIndex * 2 + 2;
-		let childIndex;
+		let smallerChildIndex;
 
 		if ( this.heap.length == 0 ) {
 			this.heap = [];
@@ -43,15 +49,15 @@ module.exports = class Heap {
 
 		while ( elementIndex < this.heap.length - 1 ) {
 			if ( this.heap[ leftChildIndex ] <= this.heap[ rightChildIndex ] ) {
-				childIndex = leftChildIndex;
+				smallerChildIndex = leftChildIndex;
 			} else {
-				childIndex = rightChildIndex;
+				smallerChildIndex = rightChildIndex;
 			}
 
-			if ( this.heap[ elementIndex ] > this.heap[ childIndex ] ) {
-				this.heap[ elementIndex ] = this.heap[ childIndex ];
-				this.heap[ childIndex ] = element;
-				elementIndex = childIndex;
+			if ( this.heap[ elementIndex ] > this.heap[ smallerChildIndex ] ) {
+				this.heap[ elementIndex ] = this.heap[ smallerChildIndex ];
+				this.heap[ smallerChildIndex ] = element;
+				elementIndex = smallerChildIndex;
 				leftChildIndex = elementIndex * 2 + 1;
 				rightChildIndex = elementIndex * 2 + 2;
 			} else {

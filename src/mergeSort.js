@@ -1,11 +1,9 @@
-function countInversions( arr ) {
-	if ( arr.length == 0 || arr.length == 1 ) {
-		return 0;
-	}
-}
+/* Merge sort algorithm */
 
 function mergeSort( array, left, right ) {
-	const count = 0;
+	if ( array.length <= 1 ) {
+		return array;
+	}
 
 	if ( left == right ) {
 		return;
@@ -29,7 +27,6 @@ function merge( arr1, arr2 ) {
 	const result = [];
 	let index1 = 0;
 	let index2 = 0;
-	let mergeCount = 0;
 
 	while ( index1 + index2 < arr1.length + arr2.length ) {
 		if ( arr1[ index1 ] == undefined ) {
@@ -43,7 +40,6 @@ function merge( arr1, arr2 ) {
 			index1++;
 		} else {
 			result.push( arr2[ index2 ] );
-			mergeCount++;
 			index2++;
 		}
 	}
@@ -59,5 +55,4 @@ function switchArraySection( arr, startIndex, section ) {
 	return arr;
 }
 
-console.log( merge( [ 5, 2 ], [ 1, 2 ] ) );
-// console.log( mergeSort( [ 8, 5,2,9 ], 0, 3));
+module.exports = { mergeSort, merge, switchArraySection };
