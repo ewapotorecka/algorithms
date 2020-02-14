@@ -17,4 +17,7 @@ describe( 'quickSort', () => {
 	it( 'should return ascending sorted array for given array #5', () => {
 		expect( quickSort( [ 1, 1, 1, 1 ] ) ).to.deep.equal( [ 1, 1, 1, 1 ] );
 	} );
+	it( 'should return ascending sorted array for given array #6', () => {
+		expect( quickSort( [ 1, 9, 5, 12, 18, 1 ] ) ).to.deep.equal( [ 1, 1, 5, 9, 12, 18 ] );
+	} );
 } );

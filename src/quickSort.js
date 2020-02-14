@@ -11,7 +11,7 @@ module.exports = function quickSort( array ) {
 
 		if ( element <= pivot ) {
 			left.push( element );
-		} else if ( element > pivot ) {
+		} else {
 			right.push( element );
 		}
 	}

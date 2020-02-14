@@ -22,7 +22,7 @@ describe( 'Heap', () => {
 		expect( newHeap4.min ).to.equal( 9 );
 		expect( newHeap5.min ).to.equal( undefined );
 	} );
-	it( 'should remove the first element of the heap', () => {
+	it( 'should remove the first element of the heap #1', () => {
 		const newHeap = new Heap( [ 4, 2, 1, 5, 7 ] );
 
 		newHeap.deleteFirstElementFromTheHeap();
@@ -35,6 +35,34 @@ describe( 'Heap', () => {
 		expect( newHeap.min ).to.equal( 4 );
 		expect( newHeap.heap.length ).to.equal( 3 );
 	} );
+	it( 'should remove the first element of the heap #2', () => {
+		const newHeap = new Heap( [ 3, 5, 1, 4, 6, 7 ] );
+
+		newHeap.deleteFirstElementFromTheHeap();
+
+		expect( newHeap.min ).to.equal( 3 );
+		expect( newHeap.heap.length ).to.equal( 5 );
+
+		newHeap.deleteFirstElementFromTheHeap();
+
+		expect( newHeap.min ).to.equal( 4 );
+		expect( newHeap.heap.length ).to.equal( 4 );
+	} );
+
+	it( 'should remove the first element of the heap #3', () => {
+		const newHeap = new Heap( [ 1, 4, 6, 5, 7, 7, 8, 9, 9, 10, 9 ] );
+
+		newHeap.deleteFirstElementFromTheHeap();
+
+		expect( newHeap.min ).to.equal( 4 );
+		expect( newHeap.heap.length ).to.equal( 10 );
+
+		newHeap.deleteFirstElementFromTheHeap();
+
+		expect( newHeap.min ).to.equal( 5 );
+		expect( newHeap.heap.length ).to.equal( 9 );
+	} );
+
 	it( 'should return the removed element of the heap', () => {
 		const newHeap = new Heap( [ 7, 2, 0, 3, 5 ] );
 		const newHeap2 = new Heap( [ 1 ] );
