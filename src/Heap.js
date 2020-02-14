@@ -31,6 +31,7 @@ module.exports = class Heap {
 		let elementIndex = 0;
 		let leftChildIndex = elementIndex * 2 + 1;
 		let rightChildIndex = elementIndex * 2 + 2;
+		let childIndex;
 
 		if ( this.heap.length == 0 ) {
 			this.heap = [];
@@ -42,25 +43,19 @@ module.exports = class Heap {
 
 		while ( elementIndex < this.heap.length - 1 ) {
 			if ( this.heap[ leftChildIndex ] <= this.heap[ rightChildIndex ] ) {
-				if ( this.heap[ elementIndex ] > this.heap[ leftChildIndex ] ) {
-					this.heap[ elementIndex ] = this.heap[ leftChildIndex ];
-					this.heap[ leftChildIndex ] = element;
-					elementIndex = leftChildIndex;
-					leftChildIndex = elementIndex * 2 + 1;
-					rightChildIndex = elementIndex * 2 + 2;
-				} else {
-					break;
-				}
+				childIndex = leftChildIndex;
 			} else {
-				if ( this.heap[ elementIndex ] > this.heap[ rightChildIndex ] ) {
-					this.heap[ elementIndex ] = this.heap[ rightChildIndex ];
-					this.heap[ rightChildIndex ] = element;
-					elementIndex = rightChildIndex;
-					leftChildIndex = elementIndex * 2 + 1;
-					rightChildIndex = elementIndex * 2 + 2;
-				} else {
-					break;
-				}
+				childIndex = rightChildIndex;
+			}
+
+			if ( this.heap[ elementIndex ] > this.heap[ childIndex ] ) {
+				this.heap[ elementIndex ] = this.heap[ childIndex ];
+				this.heap[ childIndex ] = element;
+				elementIndex = childIndex;
+				leftChildIndex = elementIndex * 2 + 1;
+				rightChildIndex = elementIndex * 2 + 2;
+			} else {
+				break;
 			}
 
 			if ( leftChildIndex >= this.heap.length ) {
