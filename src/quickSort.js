@@ -6,15 +6,17 @@ module.exports = function quickSort( array ) {
 	const right = [];
 	const pivot = array[ array.length - 1 ];
 
-	for ( const element of array ) {
+	for ( let i = 0; i < array.length - 1; i++ ) {
+		const element = array[ i ];
+
 		if ( element <= pivot ) {
 			left.push( element );
-		} else {
+		} else if ( element > pivot ) {
 			right.push( element );
 		}
 	}
 
-	const result = [ ...left, ...right ];
+	const result = [ ...quickSort( left ), pivot, ...quickSort( right ) ];
 
 	return result;
 };

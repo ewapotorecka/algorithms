@@ -16,8 +16,6 @@ function superDigit( n, k ) {
 	return superDigit;
 }
 
-console.log( superDigit( '148', 3 ) );
-
 function sumDigits( stringNumber ) {
 	let digitsSum = 0;
 
@@ -27,5 +25,3 @@ function sumDigits( stringNumber ) {
 
 	return digitsSum.toString();
 }
-
-// console.log( sumDigits( '12388' ) );

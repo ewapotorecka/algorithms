@@ -1,3 +1,5 @@
+/* Bubble sort algorithm */
+
 module.exports = function bubbleSort( array ) {
 	let switchCount = 0;
 	do {

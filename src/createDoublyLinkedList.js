@@ -1,3 +1,5 @@
+/* Function, that creates doubly linked list from given array */
+
 function createDoublyLinkedList( array ) {
 	const head = {
 		data: array[ 0 ],
